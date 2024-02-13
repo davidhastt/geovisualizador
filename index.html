@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Charts</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles el geovisualizador-->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Leaflet maps-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+ <!-- Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                        </li>
+                        <h1 class="h3 mb-2 text-gray-800">Visualizador de negocios de calzado</h1>
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <div class="col-xl-8 col-lg-7">
+
+                            <!-- Area Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ubicación de negocios de calzado</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <div id="map"></div>
+                                    </div>
+                                    <hr>
+                                    Fuente:INEGI(2023)                                
+                                </div>
+                            </div>
+
+                            <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Resumen estadistico</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <!--Empiezan tarjetas-->
+                                        <div class="row">
+
+                                            <!-- Earnings (Monthly) Card Example -->
+                                            <div class="col-xl-3 col-md-6 mb-4">
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                                   Personas trabajando</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">8,543</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <!-- Earnings (Annual) Card Example -->
+                                            <div class="col-xl-3 col-md-6 mb-4">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                                    Ganancinas</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000,000</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <!-- Tasks Card Example -->
+                                            <div class="col-xl-3 col-md-6 mb-4">
+                                                <div class="card border-left-info shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Marcas
+                                                                </div>
+                                                                <div class="row no-gutters align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="progress progress-sm mr-2">
+                                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                                style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                                                aria-valuemax="100"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <!-- Pending Requests Card Example -->
+                                            <div class="col-xl-3 col-md-6 mb-4">
+                                                <div class="card border-left-warning shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                    Personas aglomeradas</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">1,800</div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Terminan tarjetas-->
+                                    </div>
+                                    <hr>
+                                    Fuente: INEGI 2020                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Lista de negocios</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div  id="listaNegocios"></div>
+                                    <hr>
+                                    Fuente:INEGI (2023)                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+
+</body>
+<script>
+var map = L.map('map').setView([19.291618465707433, -99.55468668755461], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+
+fetch('calzado.json')
+    .then(respuesta => {
+      if (!respuesta.ok) {
+        throw new Error('Error al obtener datox');
+      }
+      return respuesta.json();
+    }).then(data => {
+      cargarData(data);
+
+    })
+    .catch(error => {
+      console.error('Error al obtener datos', error)
+    });
+
+
+  function cargarData(data) {
+
+    console.log(data.features.length);
+    let html = "";
+    longitud = data.features.length
+    
+    for (i = 0; i < longitud; i++) {
+
+      html +=
+        '<span style="border-bottom-color: #999999;" id="ember128"  class="flex-horizontal feature-list-item ember-view">' +
+        '<div id="ember129" class="flex-fix list-item-icon ember-view">' +
+        '<svg overflow="hidden"  width="40" height="40" style="touch-action: none;">' +
+        '<defs></defs>' +
+        '<image fill-opacity="0" stroke="none" stroke-opacity="0" stroke-width="1"' +
+        'stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" x="-9" y="-12"' +
+        'width="17.333333333333332" height="24" preserveAspectRatio="none"' +
+        'xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAYCAYAAAD3Va0xAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAZJJREFUOI29lD1LxEAQhp+NwYCCaPw6ghYWKsoVh4duJfoHLOz8D1trZ2UpXJffYWEpyGkhrLBWFoKFhSBy6KFYRTSxiDkTzZ05OXwhECaZZ+edGdamR7L/DVTf3IjO7xpPO1qPdA3yZTVS2pT2pbwHWPEmhj8/Tfmyequ0EYVAShsRw3QmoR2kLQhg9/pmOXnflzLa1tpW2ky3+79Tj0JAANH00GASy62mI2hvdsYo3RQAW0fHAsBxnKkgCG67rQiIp7Z+cCgAapXyWbc9GlXajAMkkJT6gddCIF9WH/JO/ppmsfHPK20G0oG0PaXNJDAGPHQE+bJ69f3Eb/YaeVVlQI7jrC16HvVNL8qptKX3EFz3ZqnZbF7kgmqVcr3toqTUZ7XWwwKiDMh13eWFklcAE2vR83Ccy9UgCE4zoL3ZmXPLKsxBALVK+STplZ2K/1UCiHp+sXWc0i/KNltpY/mSEGCuVALimgVWxvdbGHLduE9yWvlpa8mS2cAg0Jfz2MAj8EJ8zfywltYb8Nytv541+wOVYI0bmqHOdAAAAABJRU5ErkJggg=="' +
+        'transform="matrix(1.00000000,0.00000000,0.00000000,1.00000000,20.33333333,20.00000000)">' +
+        '</image>' +
+        '</svg></div>' +
+
+        '<div class="flex-fluid list-item-content overflow-hidden ">' +
+        '<div class="external-html">' +
+        '<p>' + data.features[0].properties.Codigo_de + '-' + data.features[i].properties.Nombre_de + '</p>' +
+
+
+        '</div>' +
+        '</div>' +
+        '</span>'
+
+    }
+    //console.log(html);
+
+    document.getElementById("listaNegocios").innerHTML = html;//
+  }
+</script>
+</html>
