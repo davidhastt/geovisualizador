@@ -268,7 +268,7 @@
 
 </body>
 <script>
-var map = L.map('map').setView([19.291618465707433, -99.55468668755461], 13);
+var map = L.map('map').setView([19.26269921146074, -99.53131716305644], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -293,11 +293,22 @@ fetch('calzado.json')
 
   function cargarData(data) {
 
-    console.log(data.features.length);
+    //console.log(data.features.length);
     let html = "";
     longitud = data.features.length
     
     for (i = 0; i < longitud; i++) {
+        //console.log(data.features[i].geometry.coordinates[0][0], data.features[i].geometry.coordinates[0][1]);
+        
+        // Agregar marcadores al mapa
+        let marker = L.marker([data.features[i].geometry.coordinates[0][1], data.features[i].geometry.coordinates[0][0]]).bindPopup(data.features[i].properties.name).addTo(map);
+
+
+        marker.addTo(map);
+
+
+
+
 
       html +=
         '<span style="border-bottom-color: #999999;" id="ember128"  class="flex-horizontal feature-list-item ember-view">' +
