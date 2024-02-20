@@ -299,9 +299,9 @@ fetch('calzado.json')
     
     for (i = 0; i < longitud; i++) {
         //console.log(data.features[i].geometry.coordinates[0][0], data.features[i].geometry.coordinates[0][1]);
-        
+        //console.log(data.features[i].properties.name)
         // Agregar marcadores al mapa
-        let marker = L.marker([data.features[i].geometry.coordinates[0][1], data.features[i].geometry.coordinates[0][0]]).bindPopup(data.features[i].properties.name).addTo(map);
+        let marker = L.marker([data.features[i].geometry.coordinates[0][1], data.features[i].geometry.coordinates[0][0]]).bindPopup(data.features[i].properties.Nombre_de).addTo(map);
 
 
         marker.addTo(map);
@@ -311,7 +311,7 @@ fetch('calzado.json')
 
 
       html +=
-        '<span style="border-bottom-color: #999999;" id="ember128"  class="flex-horizontal feature-list-item ember-view">' +
+        '<span style="border-bottom-color: #999999;" id="ember128"  class="flex-horizontal feature-list-item ember-view" onclick="zoomTo('+data.features[i].geometry.coordinates[0][1]+','+ data.features[i].geometry.coordinates[0][0]+')">' +
         '<div id="ember129" class="flex-fix list-item-icon ember-view">' +
         '<svg overflow="hidden"  width="40" height="40" style="touch-action: none;">' +
         '<defs></defs>' +
@@ -337,5 +337,13 @@ fetch('calzado.json')
 
     document.getElementById("listaNegocios").innerHTML = html;//
   }
+
+  function zoomTo(x,y){
+    map.setView([x,y], 18);
+    
+
+  }
+
+
 </script>
 </html>
