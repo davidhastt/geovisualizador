@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Charts</title>
+    <title>Negocios de calzado</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,8 +42,8 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">                    
-                    <img src="./img/2.jpg" class="img-fluid" alt="No se encontro imagen" width="10%">
                     <img src="./img/1.jpg" class="img-fluid" alt="No se encontro imagen" width="6%">
+                    <img src="./img/2.jpg" class="img-fluid" alt="No se encontro imagen" width="10%">
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -93,9 +93,10 @@
                                                     <div class="card-body">
                                                         <div class="row no-gutters align-items-center">
                                                             <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                   Personas trabajando</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">8,543</div>
+                                                                <div  class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                                   # de negocios de calzado
+                                                                </div>
+                                                                <div id="Nnegocios" class="h5 mb-0 font-weight-bold text-gray-800">8,543</div>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -291,7 +292,16 @@ fetch('calzado.json')
     //console.log(data.features.length);
     let html = "";
     longitud = data.features.length
+    //cambiar la cifra de numero de establecimientos de calzado
+    document.getElementById("Nnegocios").innerHTML=
+    '<div id="Nnegocios" class="h5 mb-0 font-weight-bold text-gray-800">'+longitud+'</div>';
+                                                                   
     
+    
+
+
+
+
     for (i = 0; i < longitud; i++) {
         //console.log(data.features[i].geometry.coordinates[0][0], data.features[i].geometry.coordinates[0][1]);
         //console.log(data.features[i].properties.name)
