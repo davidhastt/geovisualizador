@@ -84,7 +84,7 @@
 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Resumen estadistico</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Actividad económica principal</h6>
                                 </div>
                                 <div class="card-body">
                                     <figure class="highcharts-figure">
@@ -335,7 +335,7 @@ fetch('calzado.json')
 
 
       html +=
-        '<span style="border-bottom-color: #999999;" id="ember128"  class="flex-horizontal feature-list-item ember-view" onclick="zoomTo('+data.features[i].geometry.coordinates[0][1]+','+ data.features[i].geometry.coordinates[0][0]+')">' +
+        '<span style="border-bottom-color: #999999;"   class="flex-horizontal feature-list-item ember-view" onclick="zoomTo('+data.features[i].geometry.coordinates[0][1]+','+ data.features[i].geometry.coordinates[0][0]+','+i+')">' +
         '<div id="ember129" class="flex-fix list-item-icon ember-view">' +
         '<svg overflow="hidden"  width="40" height="40" style="touch-action: none;">' +
         '<defs></defs>' +
@@ -349,7 +349,7 @@ fetch('calzado.json')
 
         '<div class="flex-fluid list-item-content overflow-hidden ">' +
         '<div class="external-html">' +
-        '<p>' + data.features[0].properties.Codigo_de + '-' + data.features[i].properties.Nombre_de + '</p>' +
+        '<p id="item'+i+'">' + data.features[0].properties.Codigo_de + '-' + data.features[i].properties.Nombre_de + '</p>' +
 
 
         '</div>' +
@@ -362,10 +362,17 @@ fetch('calzado.json')
     document.getElementById("listaNegocios").innerHTML = html;//
   }
 
-  function zoomTo(x,y){
+  function zoomTo(x,y,i){
     map.setView([x,y], 18);
-    
 
+    //var idItem=document.getElementById("item"+i);
+    //idItem.style.color="red";
+
+  }
+
+  function regresarColor(){
+    let idItem=document.getElementById("item"+i);
+    idItem.style.color="red";
   }
 
 
